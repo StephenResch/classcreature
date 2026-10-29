@@ -100,6 +100,24 @@ export async function up(knex) {
     table.index(['event_type', 'at']);
     table.index(['actor_user_id']);
   });
+
+  await knex.schema.createTable('creatures', (table) => {
+    table.string('id', 36).primary().autoIncrement().references('id').inTable('users').onDelete('CASCADE');
+    table.string('name', 64).notNullable().unique();
+    table.string('creaturetype', 36).nullable();
+  });
+
+  await knex.schema.createTable('inventory', (table) => {
+    table.string('id', 36).primary().autoIncrement().references('id').inTable('users').onDelete('CASCADE');
+    table.string('name', 64).notNullable().unique();
+    table.string('itemtype', 36).nullable();
+  });
+
+  await knex.schema.createTable('shop', (table) => {
+    table.string('id', 36).primary().autoIncrement();
+    table.string('name', 64).notNullable().unique();
+    table.integer('price', 36).nullable();
+  });
 }
 
 /**
