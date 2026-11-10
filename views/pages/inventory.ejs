@@ -1,2 +1,21 @@
-<h1>Example inventory page</h1>
-<p>items go here</p>
+<h1>Inventory</h1>
+<% const eggs=items.filter((item)=> item.itemtype === 'egg'); %>
+
+    <% if (eggs.length===0) { %>
+        <p>You have no eggs in your inventory.</p>
+        <% } else { %>
+            <ul>
+                <% eggs.forEach(egg=> { %>
+                    <li>
+                        <a href="/inventory/<%= encodeURIComponent(egg.id) %>/hatch"
+                            aria-label="Name and hatch this egg">
+                            <img src="/img/Egg.png" alt="Egg" width="50" height="50">
+                        </a>
+                        <p>Type: <%= egg.creaturetype %>
+                        </p>
+                        <p>Rarity: <%= egg.creaturerarity %>
+                        </p>
+                    </li>
+                    <% }); %>
+            </ul>
+            <% } %>

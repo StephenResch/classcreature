@@ -1,0 +1,8 @@
+<form method="post" action="/inventory/<%= encodeURIComponent(egg.id) %>/hatch">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <label>
+        Pet name
+        <input name="name" required maxlength="64">
+    </label>
+    <button type="submit">Hatch egg</button>
+</form>

@@ -112,6 +112,7 @@ export async function up(knex) {
 
     table.string('name', 64).notNullable();
     table.string('creaturetype', 36).nullable();
+    table.string('creaturerarity', 36).nullable();
 
     table.index(['user_id']);
 });
@@ -126,6 +127,8 @@ export async function up(knex) {
 
     table.string('name', 64).notNullable();
     table.string('itemtype', 36).nullable();
+    table.string('creaturetype', 36).nullable();
+    table.string('creaturerarity', 36).nullable();
 
     table.index(['user_id']);
 });

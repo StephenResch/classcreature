@@ -1,2 +1,5 @@
 <h1>Egg page</h1>
-<p>Egg go here</p>
+<form method="POST" action="/egg/generate">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <button type="submit">Generate Egg</button>
+</form>

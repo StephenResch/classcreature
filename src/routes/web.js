@@ -13,5 +13,7 @@ export function createWebRouter(container) {
   router.get('/creature', requireAuthentication(), petController.creature)
   router.get('/egg', requireAuthentication(), petController.egg)
   router.get('/shop', petController.shop)
+  router.get('/inventory/:id/hatch', requireAuthentication(), petController.hatchForm);
+  router.post('/egg/generate', requireAuthentication(), petController.generateEgg)
   return router;
 }
