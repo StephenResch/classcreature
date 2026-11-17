@@ -93,7 +93,7 @@ export function createPetController(container) {
       try {
         const name = typeof req.body.name === 'string' ? req.body.name.trim() : '';
         if (!name || name.length > 64) {
-          throw new ValidationError('Enter a pet name of 1 to 64 characters');
+          throw new ValidationError('Enter a pet name between 1 and 64 characters');
         }
 
         const hatched = await container.db.knex.transaction(async (trx) => {
